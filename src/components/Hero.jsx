@@ -96,12 +96,12 @@ export default function Hero() {
             <div className="absolute inset-0 bg-[conic-gradient(from_0deg,#00f3ff,#9d00ff,#00f3ff)] rounded-3xl blur-[20px] scale-110 opacity-75 animate-spin-slow pointer-events-none z-0"></div>
             
             {/* Card Utama (Diam) */}
-            <div className="absolute inset-0 z-10 rounded-3xl overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.8)] bg-dark-card">
+            <div className="absolute inset-0 z-10 rounded-3xl overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.8)] bg-dark-card transition-transform duration-700 ease-out hover:scale-[1.03]">
               
               <img 
                 src="/images/foto-hero.jpg" 
                 alt="Achmad Hamdani Hilman" 
-                className="w-full h-full object-cover" 
+                className="w-full h-full object-cover transition-transform duration-700 ease-out hover:scale-[1.05]" 
               />
               
               {/* Overlay Nama Kapsul Glassmorphism */}
