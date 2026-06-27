@@ -1,0 +1,21 @@
+@import "tailwindcss";
+
+@theme {
+  /* Setup Font Custom */
+  --font-unbounded: "Unbounded", sans-serif;
+  --font-jakarta: "Plus Jakarta Sans", sans-serif;
+
+  /* Setup Warna Custom (Sesuai Vibe Dark Premium) */
+  --color-dark-bg: #030014;       /* Warna hitam paling pekat untuk background web */
+  --color-dark-card: #0F172A;     /* Warna kotak abu-abu gelap transparan */
+  --color-cyan-neon: #00F2FE;     /* Warna cyan menyala */
+  --color-purple-neon: #9B51E0;   /* Warna ungu neon untuk gradasi */
+  --color-text-muted: #94A3B8;    /* Warna abu-abu redup untuk deskripsi */
+}
+
+/* Base Styling: Terapkan warna dasar dan font default ke seluruh body */
+@layer base {
+  body {
+    @apply bg-dark-bg text-white font-jakarta antialiased;
+  }
+}
