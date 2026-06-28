@@ -26,7 +26,7 @@ export default function Navbar() {
         </nav>
 
         <a 
-          href="/resume.pdf" 
+          href="/images/CV Achmad Hamdani Hilman.pdf" 
           target="_blank" 
           rel="noopener noreferrer"
           className="px-6 py-2.5 rounded-full border border-white/20 text-sm font-semibold hover:border-cyan-neon hover:text-cyan-neon hover:shadow-[0_0_15px_-3px_var(--color-cyan-neon)] transition-all duration-300"

@@ -68,7 +68,7 @@ export default function Hero() {
             </a>
             
             <a 
-              href="/resume.pdf" 
+              href="/images/CV Achmad Hamdani Hilman.pdf" 
               target="_blank" 
               rel="noopener noreferrer"
               className="px-8 py-3.5 rounded-full border-[2px] border-white/20 font-bold hover:border-cyan-neon hover:text-cyan-neon transition-colors flex items-center gap-2.5"
