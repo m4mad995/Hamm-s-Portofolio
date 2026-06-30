@@ -34,7 +34,8 @@ export default async function handler(req, res) {
         imageLink: props['Image Link']?.url || "",
         repoLink: props['Repo Link']?.url || "",
         designLink: props['Design Link']?.url || "",
-        liveLink: props['Live Link']?.url || ""
+        liveLink: props['Live Link']?.url || "",
+        type: props.Type?.select?.name || ""
       };
     });
 

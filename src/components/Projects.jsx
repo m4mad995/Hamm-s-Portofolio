@@ -317,7 +317,7 @@ export default function Projects() {
                     </td>
                     
                     <td className="py-5 text-sm font-light text-gray-400">
-                      {item.capsuleText || "Mini Project"}
+                      {item.type || "Mini Project"}
                     </td>
                     
                     <td className="py-5">
