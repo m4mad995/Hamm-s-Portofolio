@@ -1,14 +1,46 @@
+import { useEffect, useRef, useState } from "react";
+
 export default function Hero() {
+  const sectionRef = useRef(null);
+  const [isVisible, setIsVisible] = useState(false);
+
+  // Intersection Observer untuk memicu animasi saat komponen masuk/keluar layar
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setIsVisible(entry.isIntersecting);
+      },
+      {
+        threshold: 0.1, // Berjalan saat 10% area masuk viewport
+      }
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => {
+      if (sectionRef.current) {
+        observer.unobserve(sectionRef.current);
+      }
+    };
+  }, []);
+
   return (
-    <section id="home" className="pt-20 pb-20 md:pt-27 md:pb-32 min-h-screen flex items-center relative overflow-hidden">
+    <section 
+      id="home" 
+      ref={sectionRef}
+      className="pt-20 pb-20 md:pt-27 md:pb-32 min-h-screen flex items-center relative overflow-hidden"
+    >
       {/* Custom Style Block untuk Animasi Putar & Efek Glassmorphic Kapsul */}
       <style>{`
-        @keyframes spin-slow {
-          0% { transform: rotate(0deg); }
-          100% { transform: rotate(360deg); }
+        /* Animasi Loop Floating Naik-Turun Lembut untuk Penampung Foto & Background Glow */
+        @keyframes float-slow {
+          0%, 100% { transform: translateY(0); }
+          50% { transform: translateY(-14px); }
         }
-        .animate-spin-slow {
-          animation: spin-slow 10s linear infinite;
+        .animate-float-slow {
+          animation: float-slow 4.5s ease-in-out infinite;
         }
         .glass-capsule {
           background: rgba(255, 255, 255, 0.03);
@@ -34,32 +66,60 @@ export default function Hero() {
 
       <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-12 items-center w-full relative z-10">
         
-        {/* Left Column: Teks Utama & Kapsul Lokasi */}
+        {/* Left Column: Teks Utama & Kapsul Lokasi dengan Staggered Controlled Slide & Fade-In */}
         <div className="flex flex-col items-start z-10">
           
-          {/* Tag Status yang Diperbarui: Border Putih-Abu, Background Gelap, Simbol Hijau */}
-          <div className="px-4 py-1.5 rounded-full border border-white/15 bg-white/5 text-text-muted text-xs font-bold tracking-widest mb-8 flex items-center gap-2">
+          {/* 1. Tag Status (Urutan Pertama) */}
+          <div 
+            className="px-4 py-1.5 rounded-full border border-white/15 bg-white/5 text-text-muted text-xs font-bold tracking-widest mb-8 flex items-center gap-2 transition-all duration-700 ease-out"
+            style={{
+              transform: isVisible ? "translateY(0)" : "translateY(32px)", // translate-y-8 ke 0
+              opacity: isVisible ? 1 : 0,
+            }}
+          >
             <span className="text-green-500 font-black">✦</span> AVAILABLE FOR INTERNSHIP
           </div>
           
-          <h1 className="font-unbounded text-5xl md:text-7xl lg:text-8xl font-black leading-[1.1] mb-6 uppercase">
+          {/* 2. Teks Judul Besar (Urutan Kedua - Delay 150ms) */}
+          <h1 
+            className="font-unbounded text-5xl md:text-7xl lg:text-8xl font-black leading-[1.1] mb-6 uppercase transition-all duration-700 ease-out"
+            style={{
+              transform: isVisible ? "translateY(0)" : "translateY(32px)", // translate-y-8 ke 0
+              opacity: isVisible ? 1 : 0,
+              transitionDelay: isVisible ? "150ms" : "0ms",
+            }}
+          >
             SHAPING <span className="font-black text-transparent block" style={{ WebkitTextStroke: "1px white" }}>DIGITAL</span>
             <span className="bg-gradient-to-r from-cyan-neon to-purple-neon bg-clip-text text-transparent">
               SYSTEM
             </span>
           </h1>
 
-          <p className="text-sm md:text-base text-text-muted max-w-lg mb-10 leading-relaxed">
+          {/* 3. Deskripsi Teks (Urutan Ketiga - Delay 300ms) */}
+          <p 
+            className="text-sm md:text-base text-text-muted max-w-lg mb-10 leading-relaxed transition-all duration-700 ease-out"
+            style={{
+              transform: isVisible ? "translateY(0)" : "translateY(32px)", // translate-y-8 ke 0
+              opacity: isVisible ? 1 : 0,
+              transitionDelay: isVisible ? "300ms" : "0ms",
+            }}
+          >
             I'm <span className="text-white font-semibold">  Hamdani</span> - an end-to-end web creator with a strong passion for seamless user experience. I design intuitive interfaces and bring them to life with clean, resilient code.
           </p>
 
-          {/* CTA Buttons dengan SVG Icons Premium */}
-          <div className="flex flex-wrap gap-4 mb-8">
+          {/* 4. Tombol Aksi / CTA Buttons (Urutan Keempat - Delay 450ms) */}
+          <div 
+            className="flex flex-wrap gap-4 mb-8 transition-all duration-700 ease-out"
+            style={{
+              transform: isVisible ? "translateY(0)" : "translateY(32px)", // translate-y-8 ke 0
+              opacity: isVisible ? 1 : 0,
+              transitionDelay: isVisible ? "450ms" : "0ms",
+            }}
+          >
             <a 
               href="#projects" 
               className="px-8 py-3.5 rounded-full bg-gradient-to-r from-cyan-neon to-purple-neon text-white font-bold hover:opacity-90 transition-opacity flex items-center gap-2.5 shadow-[0_0_20px_-5px_rgba(0,243,255,0.5)]"
             >
-              {/* Monitor/Screen Icon Vector */}
               <svg className="w-4 h-4 stroke-[2.5]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <rect width="20" height="14" x="2" y="3" rx="2" />
                 <path d="M12 17v4M8 21h8" strokeLinecap="round" strokeLinejoin="round"/>
@@ -73,7 +133,6 @@ export default function Hero() {
               rel="noopener noreferrer"
               className="px-8 py-3.5 rounded-full border-[2px] border-white/20 font-bold hover:border-cyan-neon hover:text-cyan-neon transition-colors flex items-center gap-2.5"
             >
-              {/* Download/Arrow Down Icon Vector */}
               <svg className="w-4 h-4 stroke-[2.5]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3" />
               </svg>
@@ -81,27 +140,46 @@ export default function Hero() {
             </a>
           </div>
 
-          {/* Tag Lokasi Kapsul */}
-          <div className="inline-flex items-center gap-2 text-xs font-semibold text-text-muted bg-dark-card px-4 py-2 rounded-full border border-white/5 tracking-wide">
+          {/* 5. Tag Lokasi Kapsul (Urutan Kelima - Delay 600ms) */}
+          <div 
+            className="inline-flex items-center gap-2 text-xs font-semibold text-text-muted bg-dark-card px-4 py-2 rounded-full border border-white/5 tracking-wide transition-all duration-700 ease-out"
+            style={{
+              transform: isVisible ? "translateY(0)" : "translateY(32px)", // translate-y-8 ke 0
+              opacity: isVisible ? 1 : 0,
+              transitionDelay: isVisible ? "600ms" : "0ms",
+            }}
+          >
             <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
             Surabaya, ID — Available for Remote
           </div>
         </div>
 
-        {/* Right Column: Premium Card Setup dengan Shadow Proporsional Muter */}
-        <div className="relative flex justify-center items-center isolate">
-          <div className="relative w-full max-w-md aspect-[4/5]">
+        {/* Right Column: Setup Card Foto (Loop Floating, Rotate-2, Zoom Hanya Pada Foto & Radius Aman) */}
+        <div 
+          className="relative flex justify-center items-center isolate transition-all duration-1000 ease-out"
+          style={{
+            transform: isVisible ? "translateY(0)" : "translateY(32px)",
+            opacity: isVisible ? 1 : 0,
+            transitionDelay: isVisible ? "500ms" : "0ms"
+          }}
+        >
+          {/* Pembungkus Utama: Menjalankan Animasi Loop Floating & Efek Miring rotate-2 Bersama-sama */}
+          <div className="relative w-full max-w-md aspect-[4/5] animate-float-slow rotate-2">
             
-            {/* Efek Shadow Berputar: Sebangun, Radius Sama, 10% Lebih Besar (scale-110) */}
-            <div className="absolute inset-0 bg-[conic-gradient(from_0deg,#00f3ff,#9d00ff,#00f3ff)] rounded-3xl blur-[20px] scale-110 opacity-75 animate-spin-slow pointer-events-none z-0"></div>
+            {/* Efek Shadow Glow di Belakang */}
+            <div className="absolute inset-0 bg-[conic-gradient(from_0deg,#00f3ff,#9d00ff,#00f3ff)] rounded-3xl blur-[50px] scale-107 opacity-60 pointer-events-none z-0"></div>
             
-            {/* Card Utama (Diam) */}
-            <div className="absolute inset-0 z-10 rounded-3xl overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.8)] bg-dark-card transition-transform duration-700 ease-out hover:scale-[1.03]">
+            {/* Card Utama: Menggunakan style khusus untuk memaksa penanganan kliping lapisan browser */}
+            <div 
+              className="absolute inset-0 z-10 rounded-3xl overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.8)] bg-dark-card"
+              style={{ isolation: 'isolate', WebkitMaskImage: '-webkit-radial-gradient(white, black)' }}
+            >
               
+              {/* Foto Profil: Diberi rounded-3xl langsung agar radius sudutnya dikunci dan TIDAK HILANG saat di-hover */}
               <img 
                 src="/images/foto-hero.jpg" 
                 alt="Achmad Hamdani Hilman" 
-                className="w-full h-full object-cover transition-transform duration-700 ease-out hover:scale-[1.05]" 
+                className="w-full h-full object-cover rounded-3xl transition-transform duration-700 ease-out hover:scale-[1.06]" 
               />
               
               {/* Overlay Nama Kapsul Glassmorphism */}
@@ -120,6 +198,7 @@ export default function Hero() {
 
       </div>
 
+      {/* Bagian Bawah: Scroll Indicator (STAY ORIGINAL) */}
       <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1.5 z-20">
         <span className="text-[10px] md:text-xs font-semibold text-gray-500 uppercase tracking-[0.25em] select-none">
           Scroll
