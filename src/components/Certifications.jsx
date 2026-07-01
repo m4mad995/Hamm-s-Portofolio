@@ -97,7 +97,7 @@ export default function Certification() {
           }`}>
             <button 
               onClick={() => handleScroll("left")}
-              className="w-10 h-10 md:w-12 md:h-12 rounded-full border border-white/10 flex items-center justify-center text-gray-500 hover:text-white hover:border-white/30 bg-transparent transition-all duration-300 active:scale-95"
+              className="w-10 h-10 md:w-12 md:h-12 rounded-full border border-white/10 flex items-center justify-center text-gray-400 hover:text-white hover:border-white/30 bg-transparent transition-all duration-300 active:scale-95"
               aria-label="Previous Certificate"
             >
               <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
@@ -106,7 +106,7 @@ export default function Certification() {
             </button>
             <button 
               onClick={() => handleScroll("right")}
-              className="w-10 h-10 md:w-12 md:h-12 rounded-full border border-white/10 flex items-center justify-center text-gray-500 hover:text-white hover:border-white/30 bg-transparent transition-all duration-300 active:scale-95"
+              className="w-10 h-10 md:w-12 md:h-12 rounded-full border border-white/10 flex items-center justify-center text-gray-400 hover:text-white hover:border-white/30 bg-transparent transition-all duration-300 active:scale-95"
               aria-label="Next Certificate"
             >
               <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
@@ -173,7 +173,7 @@ export default function Certification() {
                       href={cert.credentialLink || "#"}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-gray-500 hover:text-cyan-neon p-1 transition-colors duration-300 flex-shrink-0"
+                      className="text-gray-400 hover:text-cyan-neon p-1 transition-colors duration-300 flex-shrink-0"
                     >
                       <svg className="w-4 h-4 stroke-[2.5]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25" />

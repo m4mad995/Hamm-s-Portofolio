@@ -80,7 +80,7 @@ export default function Toolkit() {
         </div>
 
         {/* 2. DUA CONTAINER UTAMA: Efek 'Fade-In Scale' Sinkron Bersama */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-6">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-6 max-w-[80%] lg:max-w-full mx-auto">
           
           {/* KONTAINER 1: UI & Front End */}
           <div 
@@ -98,7 +98,6 @@ export default function Toolkit() {
 
             {/* 3. TOOL CARDS: Efek 'Staggered Pop-up' Organik */}
             <div className="grid grid-cols-2 gap-4">
-              {/* Figma — Delay 100ms */}
               <div 
                 className={`bg-[#090a0f] border border-white/5 rounded-2xl p-6 flex flex-col items-center justify-center gap-3 transition-all duration-500 ease-spring ${
                   isVisible ? "scale-100 translate-y-0 opacity-100" : "scale-90 translate-y-4 opacity-0"
@@ -164,7 +163,6 @@ export default function Toolkit() {
 
             {/* 3. TOOL CARDS: Efek 'Staggered Pop-up' Organik */}
             <div className="grid grid-cols-2 gap-4">
-              {/* Javascript — Delay 100ms */}
               <div 
                 className={`bg-[#090a0f] border border-white/5 rounded-2xl p-6 flex flex-col items-center justify-center gap-3 transition-all duration-500 ease-spring ${
                   isVisible ? "scale-100 translate-y-0 opacity-100" : "scale-90 translate-y-4 opacity-0"
@@ -217,7 +215,7 @@ export default function Toolkit() {
         </div>
 
         {/* 4. SECTION 'ALSO FLUENT IN': Animasi 'Slide-Up Staggered' Berurutan Cepat */}
-        <div className="flex flex-col md:flex-row items-start md:items-center gap-4 md:gap-6 mt-8 overflow-hidden">
+        <div className="flex flex-col lg:flex-row items-start justify-start gap-6 mt-8 overflow-hidden">
           <span 
             className={`font-unbounded text-sm md:text-base font-black text-white tracking-wider uppercase whitespace-nowrap pt-1 transition-all duration-700 ease-out ${
               isVisible ? "translate-y-0 opacity-100" : "translate-y-4 opacity-0"

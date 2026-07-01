@@ -121,7 +121,7 @@ export default function Projects() {
               className={`px-6 py-2.5 rounded-full text-xs md:text-sm font-medium tracking-wide border transition-all duration-300 ${
                 activeFilter === filter
                   ? "bg-white text-dark-bg border-white font-bold"
-                  : "bg-transparent text-gray-500 border-white/10 hover:border-white/30 hover:text-gray-300"
+                  : "bg-transparent text-gray-400 border-white/10 hover:border-white/30 hover:text-gray-300"
               }`}
             >
               {filter}
@@ -137,7 +137,7 @@ export default function Projects() {
             return (
               <div 
                 key={project.id} 
-                className="group relative z-0 bg-dark-card px-2.5 py-2.5 rounded-3xl border border-white/5 flex flex-col justify-between shadow-xl hover:-translate-y-1 transition-all duration-700 ease-out"
+                className="group relative z-0 bg-dark-card px-2.5 py-2.5 rounded-3xl border border-white/5 flex flex-col justify-between shadow-xl hover:-translate-y-1 transition-all duration-700 ease-out max-w-[90%] md:max-w-full mx-auto w-full"
                 style={{
                   transform: isTopVisible ? "translateY(0px)" : "translateY(32px)",
                   opacity: isTopVisible ? 1 : 0,
@@ -196,7 +196,7 @@ export default function Projects() {
                       
                       <div className="flex items-center gap-3 flex-shrink-0 pt-1">
                         {project.repoLink && (
-                          <a href={project.repoLink} target="_blank" rel="noopener noreferrer" className="text-gray-500 hover:text-cyan-neon transition-colors duration-300" title="View Repository">
+                          <a href={project.repoLink} target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-cyan-neon transition-colors duration-300" title="View Repository">
                             <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                               <path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4" />
                               <path d="M9 18c-4.51 2-5-2-7-2" />
@@ -205,7 +205,7 @@ export default function Projects() {
                         )}
 
                         {project.designLink && (
-                          <a href={project.designLink} target="_blank" rel="noopener noreferrer" className="text-gray-500 hover:text-cyan-neon transition-colors duration-300" title="View Figma Design">
+                          <a href={project.designLink} target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-cyan-neon transition-colors duration-300" title="View Figma Design">
                             <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                               <path d="M5 5.5A3.5 3.5 0 0 1 8.5 2H12v7H8.5A3.5 3.5 0 0 1 5 5.5z"/>
                               <path d="M12 2h3.5a3.5 3.5 0 0 1 0 7H12V2z"/>
@@ -217,7 +217,7 @@ export default function Projects() {
                         )}
 
                         {project.liveLink && (
-                          <a href={project.liveLink} target="_blank" rel="noopener noreferrer" className="text-gray-500 hover:text-cyan-neon transition-colors duration-300" title="View Live Site">
+                          <a href={project.liveLink} target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-cyan-neon transition-colors duration-300" title="View Live Site">
                             <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
                               <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25" />
                             </svg>
@@ -226,7 +226,7 @@ export default function Projects() {
                       </div>
                     </div>
 
-                    <p className="text-xs text-gray-400 leading-relaxed font-light mb-4 text-justify">
+                    <p className="text-xs text-gray-400 leading-relaxed font-light mb-4 text-justify ">
                       {project.description}
                     </p>
                   </div>
@@ -260,7 +260,7 @@ export default function Projects() {
             style={{ transform: isArchiveVisible ? "scaleX(1)" : "scaleX(0)" }}
           ></div>
           <span 
-            className={`font-unbounded text-xs font-black tracking-[0.2em] text-gray-500 whitespace-nowrap uppercase transition-all duration-700 ease-out ${
+            className={`font-unbounded text-xs font-black tracking-[0.2em] text-gray-400 whitespace-nowrap uppercase transition-all duration-700 ease-out ${
               isArchiveVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
             } delay-100`}
           >
@@ -273,7 +273,7 @@ export default function Projects() {
         </div>
 
         {/* 6. AREA TABEL: Diberikan overflow-y-hidden agar scrollbar vertikal default tidak berkedip saat animasi */}
-        <div className="w-full overflow-x-auto" style={{ overflowY: "hidden" }}>
+        <div className="w-full overflow-x-auto scrollbar-thin" style={{ overflowY: "hidden" }}>
           <table className="w-full text-left border-collapse min-w-[600px]">
             <thead>
               <tr 
@@ -308,7 +308,7 @@ export default function Projects() {
                       transitionDelay: rowDelay
                     }}
                   >
-                    <td className="py-5 text-sm font-medium text-gray-500">
+                    <td className="py-5 text-sm font-medium text-gray-400">
                       {(idx + 1).toString().padStart(2, '0')}
                     </td>
                     
@@ -323,7 +323,7 @@ export default function Projects() {
                     <td className="py-5">
                       <div className="flex gap-2">
                         {(item.techStack || []).map((tech, tIdx) => (
-                          <span key={tIdx} className="px-3 py-1 rounded-full border border-white/10 text-[10px] text-gray-500 font-medium bg-transparent">
+                          <span key={tIdx} className="px-3 py-1 rounded-full border border-white/10 text-[10px] text-gray-400 font-medium bg-transparent">
                             {tech}
                           </span>
                         ))}
@@ -333,7 +333,7 @@ export default function Projects() {
                     <td className="py-5 text-right">
                       <div className="flex gap-3 items-center justify-end">
                         {item.repoLink && (
-                          <a href={item.repoLink} target="_blank" rel="noopener noreferrer" className="text-gray-500 hover:text-cyan-neon inline-block transition-colors duration-300">
+                          <a href={item.repoLink} target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-cyan-neon inline-block transition-colors duration-300">
                             <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                               <path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4" />
                               <path d="M9 18c-4.51 2-5-2-7-2" />
@@ -341,7 +341,7 @@ export default function Projects() {
                           </a>
                         )}
                         {item.designLink && (
-                          <a href={item.designLink} target="_blank" rel="noopener noreferrer" className="text-gray-500 hover:text-cyan-neon inline-block transition-colors duration-300">
+                          <a href={item.designLink} target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-cyan-neon inline-block transition-colors duration-300">
                             <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                               <path d="M5 5.5A3.5 3.5 0 0 1 8.5 2H12v7H8.5A3.5 3.5 0 0 1 5 5.5z"/>
                               <path d="M12 2h3.5a3.5 3.5 0 0 1 0 7H12V2z"/>
@@ -352,7 +352,7 @@ export default function Projects() {
                           </a>
                         )}
                         {item.liveLink && (
-                          <a href={item.liveLink} target="_blank" rel="noopener noreferrer" className="text-gray-500 hover:text-cyan-neon inline-block transition-colors duration-300">
+                          <a href={item.liveLink} target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-cyan-neon inline-block transition-colors duration-300">
                             <svg className="w-4 h-4 stroke-[2]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                               <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25" />
                             </svg>

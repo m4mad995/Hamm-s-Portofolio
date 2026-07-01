@@ -126,7 +126,7 @@ export default function About() {
               }`}
             >
               <div className="flex items-center gap-3">
-                <span className="text-sm font-unbounded font-bold text-text-muted/40 tracking-wider">01</span>
+                <span className="text-sm font-unbounded font-bold text-text-muted/60 tracking-wider">01</span>
                 <h4 className="text-sm font-bold text-white uppercase tracking-wider">Adaptive Mindset</h4>
               </div>
               <p className="text-xs text-text-muted pl-7 leading-relaxed font-light">
@@ -141,7 +141,7 @@ export default function About() {
               }`}
             >
               <div className="flex items-center gap-3">
-                <span className="text-sm font-unbounded font-bold text-text-muted/40 tracking-wider">02</span>
+                <span className="text-sm font-unbounded font-bold text-text-muted/60 tracking-wider">02</span>
                 <h4 className="text-sm font-bold text-white uppercase tracking-wider">End-to-End Process</h4>
               </div>
               <p className="text-xs text-text-muted pl-7 leading-relaxed font-light">
@@ -156,7 +156,7 @@ export default function About() {
               }`}
             >
               <div className="flex items-center gap-3">
-                <span className="text-sm font-unbounded font-bold text-text-muted/40 tracking-wider">03</span>
+                <span className="text-sm font-unbounded font-bold text-text-muted/60 tracking-wider">03</span>
                 <h4 className="text-sm font-bold text-white uppercase tracking-wider">Product-Minded</h4>
               </div>
               <p className="text-xs text-text-muted pl-7 leading-relaxed font-light">
